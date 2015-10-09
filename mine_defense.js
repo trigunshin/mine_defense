@@ -79,6 +79,17 @@ var feed_novice_dragon = function() {
 var novice_dragon_id = setInterval(feed_novice_dragon, 1000 * 1);
 // clearInterval(novice_dragon_id);
 
+var auto_dragon = function() {
+	if(MD.DRAGONS[MD.CURRENT_DRAGON].id <= 5 && MD.EARTH_ESSENCE > 2000) {
+		MD.feedDragon("100P");
+	}
+	if(MD.DRAGONS[MD.CURRENT_DRAGON].id === 6) {
+		MD.sacrificeDragon(true);
+	}
+}
+var auto_dragon_id = setInterval(auto_dragon, 1000 * 1);
+// clearInterval(auto_dragon_id);
+
 var auto_military = function() {
 	if(MD.getEnemyStrength()*1.2 < MD.getMilitaryStrength()) {
 		MD.launchCampaign(true);
@@ -134,6 +145,8 @@ MD.updateStats = function () {
     custom_box.append(make_stat_div((MD.TOTAL_IRON > 0) ? "Iron: " + s(MD.IRON) : ""));
     custom_box.append(make_stat_div((MD.TOTAL_STEEL > 0) ? "Steel: " + s(MD.STEEL) : ""));
     custom_box.append(make_stat_div((MD.TOTAL_ADAMANTIUM > 0) ? "Adamantium: " + s(MD.ADAMANTIUM) : ""));
+    custom_box.append(make_stat_div((MD.TOTAL_FLAX > 0) ? "Flax: " + s(MD.FLAX) : ""));
+    custom_box.append(make_stat_div((MD.TOTAL_DRAGONSCALE > 0) ? "Dragonscale: " + s(MD.DRAGONSCALE) : ""));
 
     //Essence
     custom_box.append(make_stat_div((MD.TOTAL_FIRE_ESSENCE > 0) ? "Fire Essence: " + s(MD.FIRE_ESSENCE) : ""));
