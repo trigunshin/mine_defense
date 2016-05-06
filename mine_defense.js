@@ -85,6 +85,8 @@ var auto_dragon = function() {
 	}
 	if(MD.DRAGONS[MD.CURRENT_DRAGON].id === 6) {
 		MD.sacrificeDragon(true);
+		// click essence add button to add new essence
+		MD.addSpirit(5);
 	}
 }
 var auto_dragon_id = setInterval(auto_dragon, 1000 * 1);
